@@ -38,11 +38,17 @@
 
 @media (max-width: 480px) {
   .actionContainer {
+    height: auto;
+    flex-wrap: wrap;
     width: 100%;
+    border-radius: 16px;
   }
 
   .searchButton {
-    display: none;
+    margin-top: 8px;
+    width: 100%;
+    border-radius: 16px;
+    height: 36px;
   }
 
   .divider {
