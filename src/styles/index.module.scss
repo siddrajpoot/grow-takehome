@@ -50,6 +50,7 @@
     padding: 12px;
     cursor: pointer;
     transition: background 150ms ease-in-out;
+    position: relative;
 
     &:hover {
       background: rgba(245, 247, 247, 0.5);
@@ -216,6 +217,10 @@
       margin-left: 24px;
       margin-right: 0;
       color: #025b4b;
+    }
+
+    &:nth-last-child(2) {
+      margin-right: 0;
     }
 
     &[data-disabled] {
