@@ -2,6 +2,7 @@ import { type AppType } from 'next/dist/shared/lib/utils'
 import '@/styles/globals.scss'
 
 import { Lora, Poppins } from 'next/font/google'
+import { MantineProvider } from '@mantine/core'
 
 const lora = Lora({
   variable: '--font-lora',
@@ -17,9 +18,11 @@ export const poppins = Poppins({
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
-    <div className={`${lora.variable} ${poppins.variable}`}>
-      <Component {...pageProps} />
-    </div>
+    <MantineProvider withNormalizeCSS withGlobalStyles>
+      <div className={`${lora.variable} ${poppins.variable}`}>
+        <Component {...pageProps} />
+      </div>
+    </MantineProvider>
   )
 }
 
