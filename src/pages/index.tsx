@@ -1,9 +1,61 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import styles from '@/styles/index.module.scss'
 import { type Article, type WikiData } from '@/types'
 import { formatArticleTitle, getFormattedDate } from '@/utils'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
-import { poppins } from './_app'
+import Image from 'next/image'
+import calIcon from 'public/cal.svg'
+import listIcon from 'public/list.svg'
+import arrowIcon from '/public/arrow.svg'
+
+const DatePicker = () => {
+  return (
+    <div className={`${styles.picker} ${styles.datePicker}`}>
+      <div className={styles.pickerIcon}>
+        <Image src={calIcon} alt='calendar icon' />
+      </div>
+
+      <div className={styles.textContainer}>
+        <div className={styles.labelText}>
+          Date <Image src={arrowIcon} alt='arrow icon' />
+        </div>
+        <p className={styles.dateText}>January 12, 2023</p>
+      </div>
+    </div>
+  )
+}
+
+const FilterPicker = () => {
+  return (
+    <div className={`${styles.picker} ${styles.filterPicker}`}>
+      <div className={styles.pickerIcon}>
+        <Image src={listIcon} alt='list icon' />
+      </div>
+
+      <div className={styles.textContainer}>
+        <div className={styles.labelText}>
+          Num results <Image src={arrowIcon} alt='arrow icon' />
+        </div>
+        <p className={styles.dateText}>100</p>
+      </div>
+    </div>
+  )
+}
+
+const ActionBar = () => {
+  return (
+    <div className={styles.actionContainer}>
+      <DatePicker />
+
+      <div className={styles.divider} />
+
+      <FilterPicker />
+
+      <button className={styles.searchButton}>Search</button>
+    </div>
+  )
+}
 
 const Results = ({ articles }: { articles: Article[] | null }) => {
   return (
@@ -13,18 +65,12 @@ const Results = ({ articles }: { articles: Article[] | null }) => {
           <li className={styles.result} key={article}>
             <p className={styles.rank}>{rank}</p>
             <p className={styles.articleTitle}>{formatArticleTitle(article)}</p>
-            <p className={`${styles.views} ${poppins.className}`}>
-              {views.toLocaleString('en-US')}
-            </p>
+            <p className={styles.views}>{views.toLocaleString('en-US')}</p>
           </li>
         ))}
       </ul>
     </div>
   )
-}
-
-const ActionBar = () => {
-  return <div className={styles.actionContainer}>Action Bar</div>
 }
 
 export default function Home() {

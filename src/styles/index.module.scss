@@ -19,21 +19,107 @@
   letter-spacing: -0.02em;
   color: #05090d;
   margin-bottom: 40px;
+  margin-top: 56px;
 }
 
 .actionContainer {
+  font-family: var(--font-poppins);
   width: 800px;
   height: 96px;
+  padding: 16px;
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
   background-color: #fff;
   box-shadow: 0px 2px 0px 1px rgba(5, 9, 13, 0.06);
   border-radius: 100px;
 
   margin-bottom: 24px;
+
+  .picker {
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 260px;
+    padding: 12px;
+  }
+
+  .pickerIcon {
+    height: 48px;
+    width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+  }
+
+  .labelText {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    color: #a7aaab;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+
+    img {
+      margin-left: 6px;
+    }
+  }
+
+  .dateText {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+    color: #000000;
+  }
+
+  .datePicker {
+    margin-right: 36px;
+    background: rgba(245, 247, 247, 0.5);
+
+    .pickerIcon {
+      background: #ecf1e0;
+      margin-right: 24px;
+    }
+  }
+
+  .filterPicker {
+    margin-left: 36px;
+    margin-right: 16px;
+    background: rgba(245, 247, 247, 0.5);
+
+    .pickerIcon {
+      background: #fae7cc;
+      margin-right: 24px;
+    }
+  }
+
+  .divider {
+    height: 64px;
+    width: 1px;
+    background-color: #e7eaeb;
+  }
+
+  .searchButton {
+    height: 100%;
+    width: 160px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+    background: #025b4b;
+    color: #ffffff;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+  }
 }
 
 .resultsContainer {
@@ -84,6 +170,7 @@
       }
 
       .views {
+        font-family: var(--font-poppins);
         font-weight: 400;
         font-size: 14px;
         line-height: 16px;
