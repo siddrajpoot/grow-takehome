@@ -3,15 +3,22 @@ import { type Article, type WikiData } from '@/types'
 import { formatArticleTitle, getFormattedDate } from '@/utils'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
+import { poppins } from './_app'
 
 const Results = ({ articles }: { articles: Article[] | null }) => {
   return (
     <div className={styles.resultsContainer}>
-      <div>
-        {articles?.map(({ article }) => (
-          <p key={article}>{formatArticleTitle(article)}</p>
+      <ul className={styles.results}>
+        {articles?.map(({ article, rank, views }) => (
+          <li className={styles.result} key={article}>
+            <p className={styles.rank}>{rank}</p>
+            <p className={styles.articleTitle}>{formatArticleTitle(article)}</p>
+            <p className={`${styles.views} ${poppins.className}`}>
+              {views.toLocaleString('en-US')}
+            </p>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   )
 }
@@ -21,12 +28,13 @@ const ActionBar = () => {
 }
 
 export default function Home() {
-  const yesterdayDate = new Date(new Date().setDate(new Date().getDate() - 1))
-  const { year, month, day } = getFormattedDate(yesterdayDate)
   const [limit, setLimit] = useState(100)
 
   const [data, setData] = useState<Article[] | null>(null)
   useEffect(() => {
+    const yesterdayDate = new Date(new Date().setDate(new Date().getDate() - 1))
+    const { year, month, day } = getFormattedDate(yesterdayDate)
+
     fetch(
       `https://wikimedia.org/api/rest_v1/metrics/pageviews/top/en.wikipedia/all-access/${year}/${month}/${day}`
     )
