@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import styles from '@/styles/index.module.scss'
+import sharedStyles from '@/styles/ActionShared.module.scss'
+import styles from '@/styles/DatePicker.module.scss'
 import calIcon from 'public/cal.svg'
 import arrowIcon from '/public/arrow.svg'
 import { Group, Popover } from '@mantine/core'
@@ -21,6 +22,12 @@ const DatePicker = ({
     setOpened(o => !o)
   }
 
+  const formattedDate = selectedDate.toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  })
+
   return (
     <Popover
       opened={opened}
@@ -33,24 +40,34 @@ const DatePicker = ({
     >
       <Popover.Target>
         <div
-          className={`${styles.picker} ${styles.datePicker}`}
+          className={`${sharedStyles.picker} ${styles.datePicker} ${
+            opened ? sharedStyles.isOpen : ''
+          }`}
           onClick={() => setOpened(o => !o)}
         >
-          <div className={styles.pickerIcon}>
+          <div className={`${sharedStyles.pickerIcon} ${styles.pickerIcon}`}>
             <Image src={calIcon} alt='calendar icon' />
           </div>
 
           <div className={styles.textContainer}>
-            <div className={styles.labelText}>
+            <div className={sharedStyles.labelText}>
               Date <Image src={arrowIcon} alt='arrow icon' />
             </div>
-            <p className={styles.dateText}></p>
+            <p className={sharedStyles.dateText}>{formattedDate}</p>
           </div>
         </div>
       </Popover.Target>
-      <Popover.Dropdown>
+      <Popover.Dropdown className={styles.datePopover}>
         <Group position='center'>
-          <Picker value={selectedDate} onChange={handleClick} />
+          <Picker
+            value={selectedDate}
+            onChange={handleClick}
+            maxDate={new Date()}
+            className={styles.calender}
+            classNames={{
+              day: styles.calendarDay,
+            }}
+          />
         </Group>
       </Popover.Dropdown>
     </Popover>

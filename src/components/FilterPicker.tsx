@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import styles from '@/styles/index.module.scss'
+import styles from '@/styles/FilterPicker.module.scss'
+import sharedStyles from '@/styles/ActionShared.module.scss'
 
 import { Popover } from '@mantine/core'
 import Image from 'next/image'
 import { useState } from 'react'
-import calIcon from 'public/cal.svg'
 import listIcon from 'public/list.svg'
 import arrowIcon from '/public/arrow.svg'
 
@@ -29,28 +29,30 @@ const FilterPicker = ({
       onChange={setOpened}
       position='bottom-start'
       offset={{
-        mainAxis: 12,
+        mainAxis: 8,
       }}
       radius={24}
     >
       <Popover.Target>
         <div
-          className={`${styles.picker} ${styles.filterPicker}`}
+          className={`${sharedStyles.picker} ${styles.filterPicker} ${
+            opened ? sharedStyles.isOpen : ''
+          }`}
           onClick={() => setOpened(o => !o)}
         >
-          <div className={styles.pickerIcon}>
+          <div className={`${sharedStyles.pickerIcon} ${styles.pickerIcon}`}>
             <Image src={listIcon} alt='list icon' />
           </div>
 
-          <div className={styles.textContainer}>
-            <div className={styles.labelText}>
+          <div className={sharedStyles.textContainer}>
+            <div className={sharedStyles.labelText}>
               Num results <Image src={arrowIcon} alt='arrow icon' />
             </div>
-            <p className={styles.dateText}>{limit}</p>
+            <p className={sharedStyles.dateText}>{limit}</p>
           </div>
         </div>
       </Popover.Target>
-      <Popover.Dropdown>
+      <Popover.Dropdown className={styles.filterPopover}>
         {RESULTS_FILTER_VALUES.map(value => (
           <p key={value} onClick={() => handleClick(value)}>
             {value}

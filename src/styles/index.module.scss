@@ -23,217 +23,28 @@
   color: #05090d;
   margin-bottom: 40px;
   margin-top: 56px;
+  text-align: center;
 }
 
-.actionContainer {
-  font-family: var(--font-poppins);
-  width: 800px;
-  height: 96px;
-  padding: 16px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  background-color: #fff;
-  box-shadow: 0px 2px 0px 1px rgba(5, 9, 13, 0.06);
-  border-radius: 100px;
-
-  margin-bottom: 24px;
-
-  .picker {
-    border-radius: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 260px;
-    padding: 12px;
-    cursor: pointer;
-    transition: background 150ms ease-in-out;
-    position: relative;
-
-    &:hover {
-      background: rgba(245, 247, 247, 0.5);
-    }
+@media (max-width: 480px) {
+  .main {
+    padding: 0 12px;
   }
 
-  .pickerIcon {
-    height: 48px;
-    width: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 100px;
+  .title {
+    font-size: 32px;
+    margin-top: 32px;
+    margin-bottom: 32px;
   }
 
-  .labelText {
-    display: flex;
-    align-items: center;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.05em;
-    color: #a7aaab;
-    text-transform: uppercase;
-    margin-bottom: 2px;
-
-    img {
-      margin-left: 6px;
-    }
-  }
-
-  .dateText {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: -0.02em;
-    color: #000000;
-  }
-
-  .datePicker {
-    margin-right: 36px;
-
-    .pickerIcon {
-      background: #ecf1e0;
-      margin-right: 24px;
-    }
-  }
-
-  .filterPicker {
-    margin-left: 36px;
-    margin-right: 16px;
-
-    .pickerIcon {
-      background: #fae7cc;
-      margin-right: 24px;
-    }
-  }
-
-  .divider {
-    height: 64px;
-    width: 1px;
-    background-color: #e7eaeb;
-  }
-
-  .searchButton {
-    font-family: var(--font-poppins);
-    height: 100%;
-    width: 160px;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: -0.02em;
-    background: #025b4b;
-    color: #ffffff;
-    border: none;
-    border-radius: 100px;
-    cursor: pointer;
+  .header {
+    display: none;
   }
 }
 
-.resultsContainer {
-  width: 800px;
-  min-height: 400px;
-
-  display: flex;
-  flex-direction: column;
-
-  background: #ffffff;
-  box-shadow: 0px 2px 0px 1px rgba(5, 9, 13, 0.06);
-  border-radius: 16px;
-  margin-bottom: 40px;
-  padding: 32px;
-
-  .results {
-    list-style: none;
-    margin-top: 0;
-    padding-left: 0;
-
-    .result {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      font-size: 16px;
-      line-height: 24px;
-      border: 1px solid #e7eaeb;
-      border-radius: 12px;
-      padding: 24px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      .rank {
-        min-width: 20px;
-        margin-right: 20px;
-        font-weight: 400;
-        color: #a7aaab;
-      }
-
-      .articleTitle {
-        flex: 1;
-        font-weight: 500;
-        color: #000000;
-        margin-right: 20px;
-      }
-
-      .views {
-        font-family: var(--font-poppins);
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 16px;
-        color: #737680;
-      }
-    }
-  }
+@media (max-width: 1024px) {
 }
 
-.pagination {
-  margin-bottom: 80px;
-  gap: 0;
+// @media (max-width: 800px) {
 
-  .paginationItem {
-    height: 40px;
-    width: 40px;
-    margin-right: 8px;
-    padding: 0;
-    border-radius: 100px;
-    border: 1px solid #d4d8d9;
-    color: #05090d;
-    font-size: 14px;
-    line-height: 24px;
-
-    &:hover {
-      background: #e0e9cb !important;
-    }
-
-    &:first-child {
-      margin-right: 24px;
-      color: #025b4b;
-    }
-
-    &:last-child {
-      margin-left: 24px;
-      margin-right: 0;
-      color: #025b4b;
-    }
-
-    &:nth-last-child(2) {
-      margin-right: 0;
-    }
-
-    &[data-disabled] {
-      background: #d4d8d9;
-      color: #737680;
-    }
-
-    &[data-active] {
-      background: #e0e9cb;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      color: #025b4b;
-      border: none;
-    }
-  }
-}
+// }

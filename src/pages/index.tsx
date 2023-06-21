@@ -11,6 +11,7 @@ import Results from '@/components/Results'
 const YESTERDAY_DATE = new Date(new Date().setDate(new Date().getDate() - 1))
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(false)
   const [limit, setLimit] = useState(100)
   const [selectedDate, setSelectedDate] = useState(YESTERDAY_DATE)
   const [shouldFetch, setShouldFetch] = useState(true)
@@ -19,6 +20,8 @@ export default function Home() {
   useEffect(() => {
     if (shouldFetch) {
       const { year, month, day } = getFormattedDate(selectedDate)
+
+      setIsLoading(true)
 
       fetch(
         `https://wikimedia.org/api/rest_v1/metrics/pageviews/top/en.wikipedia/all-access/${year}/${month}/${day}`
@@ -40,6 +43,7 @@ export default function Home() {
         })
         .finally(() => {
           setShouldFetch(false)
+          setIsLoading(false)
         })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -64,7 +68,7 @@ export default function Home() {
           setSelectedDate={(date: Date) => setSelectedDate(date)}
         />
 
-        <Results articles={data} />
+        <Results articles={data} isLoading={isLoading} />
       </main>
     </>
   )
