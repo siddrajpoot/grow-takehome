@@ -4,11 +4,11 @@ A React app bootstrapped with the T3 stack to list the most viewed articles for 
 
 ## Libraries Used
 
-Next.js
-SCSS
-TypeScript
-SWR (fetching)
-Mantine (UI elements)
+- Next.js
+- SCSS
+- TypeScript
+- SWR (fetching)
+- Mantine (UI elements)
 
 ## Running the Application
 
