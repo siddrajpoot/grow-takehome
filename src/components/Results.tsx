@@ -8,9 +8,11 @@ import { useEffect, useState } from 'react'
 const Results = ({
   articles,
   isLoading,
+  error,
 }: {
   articles: Article[] | null
   isLoading: boolean
+  error: Error | undefined
 }) => {
   const [activePage, setPage] = useState(1)
   const ITEMS_PER_PAGE = 10
@@ -28,9 +30,17 @@ const Results = ({
     activePage * ITEMS_PER_PAGE
   )
 
+  if (error) {
+    return (
+      <div className={styles.container}>
+        <div className={styles.error}>{error.message}</div>
+      </div>
+    )
+  }
+
   if (isLoading) {
     return (
-      <div className={styles.resultsContainer}>
+      <div className={styles.container}>
         <Skeleton height={72} mb={20} radius={12} />
         <Skeleton height={72} mb={20} radius={12} />
         <Skeleton height={72} mb={20} radius={12} />
@@ -41,7 +51,7 @@ const Results = ({
 
   return (
     <>
-      <div className={styles.resultsContainer}>
+      <div className={styles.container}>
         <ul className={styles.results}>
           {paginatedArticles?.map(({ article, rank, views }) => (
             <li className={styles.result} key={article}>
@@ -58,6 +68,7 @@ const Results = ({
         className={styles.pagination}
         classNames={{
           control: styles.paginationItem,
+          dots: styles.paginationDots,
         }}
         value={activePage}
         onChange={setPage}

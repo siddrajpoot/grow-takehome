@@ -1,4 +1,4 @@
-.resultsContainer {
+.container {
   width: 800px;
   min-height: 400px;
 
@@ -103,11 +103,29 @@
       border: none;
     }
   }
+
+  .paginationDots {
+  }
+}
+
+.error {
+  font-size: 32px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 480px) {
-  .resultsContainer {
+  .container {
     width: 100%;
+  }
+
+  .pagination {
+    .paginationItem {
+      width: 30px;
+      height: 30px;
+    }
   }
 }
 
