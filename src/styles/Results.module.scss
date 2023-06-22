@@ -1,6 +1,5 @@
 .container {
   width: 800px;
-  min-height: 400px;
 
   display: flex;
   flex-direction: column;
@@ -54,6 +53,24 @@
   font-size: 14px;
   line-height: 16px;
   color: #737680;
+}
+
+.pinButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+
+  background: #fff;
+  border: none;
+  margin-left: 20px;
+  border-radius: 100px;
+  cursor: pointer;
+
+  &:hover {
+    background: rgb(245, 247, 247);
+  }
 }
 
 .pagination {

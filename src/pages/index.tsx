@@ -1,9 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import styles from '@/styles/index.module.scss'
-import { type Article, type WikiData } from '@/types'
-import { getFormattedDate } from '@/utils'
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import ActionBar from '@/components/ActionBar'
 import Results from '@/components/Results'

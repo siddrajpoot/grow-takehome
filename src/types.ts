@@ -16,3 +16,7 @@ type WikiItem = {
 export type WikiData = {
   items: WikiItem[]
 }
+
+export type Pin = {
+  [key: string]: string
+}
