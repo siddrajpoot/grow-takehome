@@ -1,28 +1,33 @@
-# Create T3 App
+### Grow Therapy Frontend Assessment
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+A React app bootstrapped with the T3 stack to list the most viewed articles for a specific day.
 
-## What's next? How do I make an app with this?
+## Libraries Used
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+Next.js
+SCSS
+TypeScript
+SWR (fetching)
+Mantine (UI elements)
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Running the Application
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+Clone the package and in your terminal, run npm install within the app's folder.
 
-## Learn More
+To run the development environment, run npm run dev or check out the [Live Demo 🚀](https://grow-takehome.vercel.app/).
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+## Takeaways
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+This was a really fun project to build from scratch (except for using a UI library for the popover and calendar elements). A few areas that I spent some time on were fetching, calendar functionality, and local storage.
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+### Fetching
 
-## How do I deploy this?
+I switched from using the standard fetch API to SWR for fetching, and while I do like how much cleaner the code became, there were a couple of challenges, like not triggering a new fetch when the calendar or filter values changed and creating a custom fetch hook with TypeScript.
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+### Calendar
+
+Finding a simple but elegant calendar UI was tough 🫡
+
+### Local Storage and Pinning
+
+This was definitely the most rewarding part of the functionality, as I had to scrap the concepts I had of how the data works and flows. Creating a custom hook that handled storing the data and formatting the wiki articles was very challenging but helpful in keeping my code concise.
