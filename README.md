@@ -12,9 +12,9 @@ A React app bootstrapped with the T3 stack to list the most viewed articles for 
 
 ## Running the Application
 
-Clone the package and in your terminal, run npm install within the app's folder.
+Clone the package and in your terminal, run `npm install` within the app's folder.
 
-To run the development environment, run npm run dev or check out the [Live Demo 🚀](https://grow-takehome.vercel.app/).
+To run the development environment, run `npm run dev` or check out the [Live Demo 🚀](https://grow-takehome.vercel.app/).
 
 ## Takeaways
 
